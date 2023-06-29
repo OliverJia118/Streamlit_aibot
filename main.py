@@ -33,7 +33,7 @@ else:
         st.stop()
 
 
-test_prompt = st.text_input('Test prompt', type='text')
+test_prompt = st.text_input('Test prompt')
 
 @st.cache_data
 def ai_test(prompt):
