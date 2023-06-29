@@ -1,0 +1,3 @@
+# Test
+
+zhipuai == 1.0.7
