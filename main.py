@@ -43,7 +43,11 @@ def ai_test(prompt):
     )
 
     return response
-
-response = ai_test(test_prompt)
+if test_prompt != '':
+    response = ai_test(test_prompt)
+else:
+    st.warning('Text is empty')
+    st.stop()
+# response = ai_test(test_prompt)
 st.write(response['data']['choices'][0]['content'])
 
