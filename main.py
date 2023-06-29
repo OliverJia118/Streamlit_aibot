@@ -60,7 +60,7 @@ else:
 openai_api_key = st.secrets['OPENAI_KEY']
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
