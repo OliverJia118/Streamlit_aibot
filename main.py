@@ -2,10 +2,8 @@ import streamlit as st
 import zhipuai
 import warnings
 
-
 warnings.filterwarnings("ignore")
 st.set_page_config(layout='wide', page_icon='🐶', page_title='担担面AI Chat box')
-
 
 st.sidebar.title('DDM AI Chat box Version 1.0')
 
@@ -32,17 +30,22 @@ else:
         st.warning('API is empty')
         st.stop()
 
-
 test_prompt = st.text_input('Test prompt')
+
 
 @st.cache_data
 def ai_test(prompt):
     response = zhipuai.model_api.invoke(
-        model = 'chatglm_6b',
-        prompt = [{'role':'user', 'content':prompt}]
+        model='chatglm_6b',
+        prompt=[{'role': 'user', 'content': prompt}],
+        temperature=0.9,
+        top_p=0.7,
+        incremental=True
     )
 
     return response
+
+
 if test_prompt != '':
     response = ai_test(test_prompt)
 else:
@@ -50,4 +53,3 @@ else:
     st.stop()
 # response = ai_test(test_prompt)
 st.write(response['data']['choices'][0]['content'])
-
