@@ -73,6 +73,6 @@ if prompt := st.chat_input():
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
 
     msg = response.choices[0].message
-    st.write(response)
+    st.write(msg)
     st.session_state.messages.append(msg)
     st.chat_message("assistant").write(msg.content)
