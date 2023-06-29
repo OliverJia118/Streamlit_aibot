@@ -4,15 +4,16 @@ import warnings
 
 
 warnings.filterwarnings("ignore")
+st.set_page_config(layout='wide', page_icon='🐶', page_title='担担面AI Chat box')
 
-st.sidebar.title('DDM AI Chatbox Version 1.0')
+
+st.sidebar.title('DDM AI Chat box Version 1.0')
 
 function = st.sidebar.selectbox('Function', ['Password', 'API'])
 if function == 'Password':
     password = st.sidebar.text_input('Password', type='password')
-    if password == '123456':
-        st.title('DDM AI Chatbox Version 1.0')
-        st.write('Welcome to DDM AI Chatbox Version 1.0')
+    if password == 'dandanzuibang':
+        st.title('Welcome to DDM AI Chat box Version 1.0')
         st.write('')
     elif password == '':
         st.warning('Password is empty')
@@ -24,6 +25,14 @@ if function == 'Password':
 else:
     api = st.sidebar.text_input('API', type='text')
     if api != '':
-        print(api)
-    else:
         pass
+    else:
+        st.warning('API is empty')
+        st.stop()
+
+
+
+
+
+
+
