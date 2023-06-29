@@ -1,6 +1,9 @@
 import streamlit as st
 import zhipuai
+import warnings
 
+
+warnings.filterwarnings("ignore")
 
 st.sidebar.title('DDM AI Chatbox Version 1.0')
 
@@ -18,4 +21,9 @@ if function == 'Password':
         st.warning('Wrong password')
         st.stop()
 
-
+else:
+    api = st.sidebar.text_input('API', type='text')
+    if api != '':
+        print(api)
+    else:
+        pass
