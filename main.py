@@ -11,7 +11,7 @@ function = st.sidebar.selectbox('Function', ['Password', 'API'])
 if function == 'Password':
     password = st.sidebar.text_input('Password', type='password')
     if password == 'dandanzuibang':
-        zhipuai.api_key = '14c95ca09607c9c512335cb8f14bce9f.hiDwX89fjf04hpwM'
+        zhipuai.api_key = st.secrets['API_KEY']
         st.title('Welcome to DDM AI Chat box Version 1.0')
         st.write('')
     elif password == '':
