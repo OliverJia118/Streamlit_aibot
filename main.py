@@ -81,6 +81,7 @@ if prompt := st.chat_input():
         top_p=0.7,
         incremental=True
     )
+    st.write(response)
     msg = response['data']['choices'][0]
     st.write('zhipu',msg)
     st.session_state.messages.append(msg)
