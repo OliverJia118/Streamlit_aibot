@@ -12,7 +12,7 @@ if function == 'Password':
     password = st.sidebar.text_input('Password', type='password')
     if password == 'dandanzuibang':
         zhipuai.api_key = st.secrets['API_KEY']
-        st.write(st.secrets['API_KEY'])
+        # st.write(st.secrets['API_KEY'])
         st.title('Welcome to DDM AI Chat box Version 1.0')
         st.write('')
     elif password == '':
@@ -31,7 +31,7 @@ else:
         st.warning('API is empty')
         st.stop()
 
-test_prompt = st.text_input('Test prompt')
+test_prompt = st.text_input('担担面你好！')
 
 
 @st.cache_data
