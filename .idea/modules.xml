@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Jupyter_script/.idea/Jupyter_script.iml" filepath="$USER_HOME$/Jupyter_script/.idea/Jupyter_script.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Streamlit_aibot.iml" filepath="$PROJECT_DIR$/.idea/Streamlit_aibot.iml" />
     </modules>
   </component>
