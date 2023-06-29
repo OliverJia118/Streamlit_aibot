@@ -57,7 +57,7 @@ else:
 # st.write(response['data']['choices'][0]['content'])
 
 
-openai_api_key = st.secrets('OPENAI_KEY')
+openai_api_key = st.secrets['OPENAI_KEY']
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
