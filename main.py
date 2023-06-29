@@ -74,6 +74,7 @@ if prompt := st.chat_input():
     msg = response.choices[0].message
     st.write(
         'openai', msg)
+    st.write(st.session_state.messages)
     response = zhipuai.model_api.invoke(
         model='chatglm_6b',
         prompt=[st.session_state.messages],
