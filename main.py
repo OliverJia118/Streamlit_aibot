@@ -76,7 +76,7 @@ if prompt := st.chat_input():
         'openai', msg)
     response = zhipuai.model_api.invoke(
         model='chatglm_6b',
-        prompt=st.session_state.messages,
+        prompt=[st.session_state.messages],
         temperature=0.9,
         top_p=0.7,
         incremental=True
