@@ -14,8 +14,7 @@ if function == 'Password':
     if password == st.secrets['PASSWORD']:
         zhipuai.api_key = st.secrets['API_KEY']
         # st.write(st.secrets['API_KEY'])
-        st.title('Welcome to DDM AI Chat box Version 1.0')
-        st.write('')
+
     elif password == '':
         st.warning('Password is empty')
         st.stop()
@@ -59,7 +58,7 @@ else:
 
 openai_api_key = st.secrets['OPENAI_KEY']
 personality = ',回答要求：将自己模仿成一个叫 担担面 的人'
-st.title("💬 Chatbot")
+st.header("💬欢迎呀，这里是AI担担面")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
 
