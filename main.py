@@ -58,7 +58,7 @@ else:
 
 
 openai_api_key = st.secrets['OPENAI_KEY']
-personality = ',回答要求：将自己模仿成担担面的语气，并且回答中加入:担担面跟你讲哦,之类的话语'
+personality = ',回答要求：将自己模仿成一个叫 担担面 的人'
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
