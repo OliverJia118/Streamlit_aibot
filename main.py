@@ -57,7 +57,7 @@ else:
 
 
 openai_api_key = st.secrets['OPENAI_KEY']
-personality = ',回答要求：将自己模仿成一个叫 担担面 的人'
+personality = ',要求：将自己模仿成一个名字叫 ”担担面“ 的人来回答， 回答风格要求幽默诙谐'
 st.header("💬欢迎呀，这里是AI担担面")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
