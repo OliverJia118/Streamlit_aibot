@@ -80,7 +80,8 @@ if prompt := st.chat_input():
         model='chatglm_std',
         prompt=st.session_state.messages[-1],
         temperature=0.9,
-        top_p=0.7
+        top_p=0.7,
+        incremental=True
     )
 
     st.write(response)
