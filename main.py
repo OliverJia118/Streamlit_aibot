@@ -37,13 +37,13 @@ else:
 #
 # @st.cache_data
 # def ai_test(prompt):
-    response = zhipuai.model_api.invoke(
-        model='chatglm_6b',
-        prompt=[{'role': 'user', 'content': prompt}],
-        temperature=0.9,
-        top_p=0.7,
-        incremental=True
-    )
+#     response = zhipuai.model_api.invoke(
+#         model='chatglm_6b',
+#         prompt=[{'role': 'user', 'content': prompt}],
+#         temperature=0.9,
+#         top_p=0.7,
+#         incremental=True
+#     )
 #
 #     return response
 #
@@ -70,9 +70,9 @@ if prompt := st.chat_input():
     openai.api_key = openai_api_key
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
-    # response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
-    # msg = response.choices[0].message
-
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
+    msg = response.choices[0].message
+    st.write('openai', msg)
     response = zhipuai.model_api.invoke(
         model='chatglm_std',
         prompt=st.session_state.messages[-1],
@@ -82,7 +82,7 @@ if prompt := st.chat_input():
     )
 
     msg = response['data']['choices'][0]
-    # st.write('zhipu',msg)
+    st.write('zhipu',msg)
     # st.session_state.messages.append(msg)
-    st.write(msg)
-    st.chat_message("assistant").write(msg.content)
+    # st.write(msg)
+    # st.chat_message("assistant").write(msg.content)
