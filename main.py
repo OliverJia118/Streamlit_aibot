@@ -12,7 +12,7 @@ function = st.sidebar.selectbox('Function', ['Password', 'API'])
 if function == 'Password':
     password = st.sidebar.text_input('Password', type='password')
     if password == st.secrets['PASSWORD']:
-        zhipuai.api_key = st.secrets['API_KEY']
+        openai_api_key = st.secrets['OPENAI_KEY']
         # st.write(st.secrets['API_KEY'])
 
     elif password == '':
@@ -25,38 +25,14 @@ if function == 'Password':
 else:
     api = st.sidebar.text_input('API', type='text')
     if api != '':
-        zhipuai.api_key = api
+        openai_api_key = api
         pass
     else:
         st.warning('API is empty')
         st.stop()
 
-# test_prompt = st.text_input('担担面你好！')
-#
-#
-# @st.cache_data
-# def ai_test(prompt):
-#     response = zhipuai.model_api.invoke(
-#         model='chatglm_6b',
-#         prompt=[{'role': 'user', 'content': prompt}],
-#         temperature=0.9,
-#         top_p=0.7,
-#         incremental=True
-#     )
-#
-#     return response
-#
-#
-# if test_prompt != '':
-#     response = ai_test(test_prompt)
-# else:
-#     st.warning('Text is empty')
-#     st.stop()
-# # response = ai_test(test_prompt)
-# st.write(response['data']['choices'][0]['content'])
 
 
-openai_api_key = st.secrets['OPENAI_KEY']
 personality = '。回答问题时要求如下：将自己模仿成一个名字叫 ”担担面“ 的人来回答， 回答风格要求幽默诙谐'
 st.header("💬欢迎呀，这里是AI担担面")
 if "messages" not in st.session_state:
@@ -72,7 +48,7 @@ if prompt := st.chat_input():
     st.chat_message("user").write(prompt)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                             messages=st.session_state.messages,
-                                            temperatuur=0.9,
+                                            temperature=0.9,
                                             max_tokens=500)
     msg = response.choices[0].message
 
