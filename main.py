@@ -58,19 +58,18 @@ else:
 
 
 openai_api_key = st.secrets['OPENAI_KEY']
+personality = ',回答要求：将自己模仿成担担面的语气，并且回答中加入:担担面跟你讲哦,之类的话语'
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
 
 for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"].replace(',请以担担面自称，'
-                                                              '并且回答问题开始加入:担担面跟你讲哦',''))
+    st.chat_message(msg["role"]).write(msg["content"].replace(personality,''))
 
 if prompt := st.chat_input():
 
     openai.api_key = openai_api_key
-    st.session_state.messages.append({"role": "user", "content": prompt+str(',请以担担面自称，'
-                                                                            '并且回答问题开始加入:担担面跟你讲哦')})
+    st.session_state.messages.append({"role": "user", "content": prompt+str(personality)})
     st.chat_message("user").write(prompt)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                             messages=st.session_state.messages)
