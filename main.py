@@ -36,7 +36,7 @@ st.header("💬欢迎呀，这里是AI担担面")
 style = st.selectbox('你希望担担面是什么性格呢？', ['诙谐幽默', '严肃认真', '学术专业', '悲观','乐观'])
 
 personality = '。回答问题时要求如下：将自己模仿成一个名字叫 ”担担面“ 的人来回答， 回答风格要求：' + str(style)
-temperature = st.radio_slider('离谱程度（越高越离谱）', min_value=0.0, max_value=2, value=0.9)
+temperature = st.slider('离谱程度（越高越离谱）', min_value=0.0, max_value=2,step=0.1, value=0.9)
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
