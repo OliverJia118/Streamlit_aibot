@@ -68,7 +68,7 @@ for msg in st.session_state.messages:
 if prompt := st.chat_input():
 
     openai.api_key = openai_api_key
-    st.session_state.messages.append({"role": "user", "content": prompt+str(',请以担担面自称，并且回答问题。')})
+    st.session_state.messages.append({"role": "user", "content": prompt+str(',请以担担面自称，并且回答问题开始加入:担担面跟你讲哦')})
     st.chat_message("user").write(prompt)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                             messages=st.session_state.messages)
