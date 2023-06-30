@@ -49,7 +49,7 @@ if prompt := st.chat_input():
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                             messages=st.session_state.messages,
                                             temperature=0.9,
-                                            max_tokens=500)
+                                            max_tokens=1500)
     msg = response.choices[0].message
 
     st.session_state.messages.append(msg)
