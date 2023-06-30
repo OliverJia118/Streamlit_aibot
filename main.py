@@ -86,6 +86,6 @@ if prompt := st.chat_input():
     st.write(response)
     msg = response['data']['choices']
     st.write('zhipu',msg)
-    st.session_state.messages.append(msg)
+    st.session_state.messages.append(msg[-1])
     st.write(msg.content)
     st.chat_message("assistant").write(msg.content)
