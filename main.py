@@ -70,19 +70,8 @@ if prompt := st.chat_input():
     openai.api_key = openai_api_key
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
-    # response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
-    # msg = response.choices[0].message
-    # st.write('openai', msg)
-    response1 = zhipuai.model_api.invoke(
-        model='chatglm_std',
-        prompt=st.session_state.messages[-1],
-        temperature=0.9,
-        top_p=0.7,
-        incremental=False
-    )
-    # st.write(response1)
-    msg1 = response1['data']['choices'][0]
-    # st.write('zhipu',msg1)
-    st.session_state.messages.append(msg1)
-    # st.write(msg)
-    st.chat_message("assistant").write(msg1.content)
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
+    msg = response.choices[0].message
+
+    st.session_state.messages.append(msg)
+    st.chat_message("assistant").write(msg.content)
