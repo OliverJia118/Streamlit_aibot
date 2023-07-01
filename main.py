@@ -1,5 +1,4 @@
 import streamlit as st
-import zhipuai
 import warnings
 import openai
 
@@ -13,7 +12,6 @@ if function == 'Password':
     password = st.sidebar.text_input('Password', type='password')
     if password == st.secrets['PASSWORD']:
         openai_api_key = st.secrets['OPENAI_KEY']
-        # st.write(st.secrets['API_KEY'])
 
     elif password == '':
         st.warning('Password is empty')
@@ -37,6 +35,7 @@ style = st.selectbox('你希望担担面是什么性格呢？', ['诙谐幽默',
 
 personality = '。回答问题时要求如下：将自己模仿成一个名字叫 ”担担面“ 的人来回答， 回答风格要求：' + str(style)
 temperature = st.slider('离谱程度（越高越离谱）', min_value=0.0, max_value=2.0,step=0.1, value=0.9)
+top_p = st.slider('靠谱程度（越高越靠谱）', min_value=0.0, max_value=1.0, step=0.1, value=0.95)
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "担担面有何可为您效劳?"}]
