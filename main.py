@@ -15,9 +15,11 @@ if function == 'Password':
 
     elif password == '':
         st.warning('Password is empty')
+        openai_api_key = ''
         st.stop()
     else:
         st.warning('Wrong password')
+        openai_api_key = ''
         st.stop()
 
 else:
@@ -27,6 +29,7 @@ else:
         pass
     else:
         st.warning('API is empty')
+        openai_api_key = ''
         st.stop()
 
 
