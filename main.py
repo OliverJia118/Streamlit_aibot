@@ -7,8 +7,8 @@ st.set_page_config(page_icon=':robot:', page_title='担担面AI')
 
 st.sidebar.title('DDM AI Chat box Version 1.0')
 
-function = st.sidebar.selectbox('Function', ['Password', 'API'])
-if function == 'Password':
+function = st.sidebar.selectbox('Function', ['Openai', '智谱AI'])
+if function == 'Openai':
     password = st.sidebar.text_input('Password', type='password')
     if password == st.secrets['PASSWORD']:
         openai_api_key = st.secrets['OPENAI_KEY']
