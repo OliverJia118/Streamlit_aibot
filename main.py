@@ -3,7 +3,7 @@ import warnings
 import openai
 
 warnings.filterwarnings("ignore")
-st.set_page_config(page_icon='🐶', page_title='担担面AI')
+st.set_page_config(page_icon=':robot:', page_title='担担面AI')
 
 st.sidebar.title('DDM AI Chat box Version 1.0')
 
