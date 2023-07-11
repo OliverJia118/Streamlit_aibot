@@ -39,7 +39,8 @@ if function == 'Openai':
     if prompt := st.chat_input():
 
         openai.api_key = openai_api_key
-        st.session_state.messages.append({"role": "user", "content": prompt+str(personality)})
+        st.session_state.messages.append({"role": "user", "content": prompt,
+                                          "role": "system", "content": str(personality)})
         st.chat_message("user").write(prompt)
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                                 messages=st.session_state.messages,
