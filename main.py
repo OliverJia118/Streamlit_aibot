@@ -46,6 +46,7 @@ if function == 'Openai':  # 如果用户选择了Openai功能
         msg = response.choices[0].message
         st.write(msg)
         st.session_state.messages.append(msg)
+        st.write(st.session_state)
         st.chat_message("assistant").write(msg.content)
 
 else:
